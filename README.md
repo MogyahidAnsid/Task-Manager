@@ -9,7 +9,7 @@
 
 ## Task Manager
 
-    The Real-Time Task Manager is a dynamic web application built to efficiently manage tasks, assignments, and notifications in real time. This project leverages Laravel, a powerful PHP framework, and incorporates various cutting-edge technologies to provide a seamless and interactive task management experience.
+The Real-Time Task Manager is a dynamic web application built to efficiently manage tasks, assignments, and notifications in real time. This project leverages Laravel, a powerful PHP framework, and incorporates various cutting-edge technologies to provide a seamless and interactive task management experience.
 
 ### Features:
 
