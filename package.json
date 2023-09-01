@@ -16,6 +16,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@alpinejs/focus": "^3.13.0",
         "@ryangjchandler/alpine-clipboard": "^2.2.0",
         "alpinejs": "^3.12.3"
     }
