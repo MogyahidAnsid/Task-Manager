@@ -12,4 +12,10 @@ class Index extends Component
     {
         return view('livewire.projects.index');
     }
+
+    public function openProjectModal()
+    {
+        dd('open project modal');
+        $this->dispatch('openCreateProjectModal');
+    }
 }
