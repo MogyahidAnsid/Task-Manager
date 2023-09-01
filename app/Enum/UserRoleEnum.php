@@ -4,17 +4,17 @@ namespace App\Enum;
 
 enum UserRoleEnum: string
 {
-    const SUPER = "super";
-    const ADMIN = "admin";
-    const MANAGER = 'manager';
-    const USER = "user";
-    const VIEWER = "viewer";
-    const CONTRIBUTOR = "contributor";
-    const APPROVER = "approver";
-    const GUEST = "guest";
-    const REPORTER = "reporter";
+    case SUPER = 'super';
+    case ADMIN = 'admin';
+    case MANAGER = 'manager';
+    case USER = "user";
+    case VIEWER = "viewer";
+    case CONTRIBUTOR = "contributor";
+    case APPROVER = "approver";
+    case GUEST = "guest";
+    case REPORTER = "reporter";
 
-    public function role()
+    public function label()
     {
         return match ($this) {
             self::SUPER => 'Super Administrator',

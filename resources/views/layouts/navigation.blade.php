@@ -48,9 +48,14 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none">
-                            <img src="https://avatars.githubusercontent.com/u/66927676?v=4" class="rounded-full w-9 h-9"
-                                alt="">
+                            class="inline-flex space-x-2 items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none">
+                            <img src="https://api.multiavatar.com/${{ Auth::user()->fullName }}.svg" 
+                                class="rounded-full w-9 h-9 object-cover"
+                                alt="{{ Auth::user()->fullName }}">
+                            <div class="text-left">
+                                <h1 class="font-semibold text-gray-800">{{ Auth::user()->fullName }}</h1>
+                                <span class="font-normal text-gray-400">{{ Auth::user()->role }}</span>
+                            </div>
                         </button>
                     </x-slot>
 

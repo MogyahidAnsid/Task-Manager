@@ -3,6 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Enum\UserRoleEnum;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,12 +21,16 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
+        'phone',
+        'first_name',
+        'last_name',
         'email',
         'password',
         'role',
         'profile_image'
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -43,5 +50,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'role' => UserRoleEnum::class
     ];
+
+    public function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => "{$this->first_name} {$this->last_name}"
+        );
+    }
+
+    public function role(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => UserRoleEnum::from($value)->label()
+        );
+    }
 }
