@@ -264,16 +264,46 @@
                 </div>
 
                 <!-- Grid Display -->
-                <div x-show="!isDisplayRow">
+                <div x-data="{ moreOptionsDropdown }" x-show="!isDisplayRow">
                     <div class="border p-3 transition-colors relative group">                        
                         <div class="flex items-center justify-between">
                             <h1 class="font-medium">Lorem ipsum dolor sit amet.</h1>
 
                             <div class="flex items-center space-x-2 text-xs font-medium">
-                                <button class="border p-1 rounded-md">
+                                <button @click="toggleMoreOptions()" class="border p-1 rounded-md relative">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
                                         <path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12.5a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1Zm-8 0a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1Zm-8 0a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1Z"/>
                                     </svg>
+
+                                    <div x-show="moreOptionsDropdown" 
+                                        @click.away="moreOptionsDropdown=false"
+                                        x-transition:enter="ease-out duration-200"
+                                        x-transition:enter-start="-translate-y-2"
+                                        x-transition:enter-end="translate-y-0"
+                                        class="absolute top-0 z-50 -right-5 w-56 mt-5"
+                                        x-cloak>
+                                        <div class="p-1 mt-1 bg-white border rounded-md shadow-md border-neutral-200/70 text-neutral-700">
+                                            <a href="#_" class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                                <span>Profile</span>
+                                                <span class="ml-auto text-xs tracking-widest opacity-60">⇧⌘P</span>
+                                            </a>
+                                            <a href="#_" class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
+                                                <span>Billing</span><span class="ml-auto text-xs tracking-widest opacity-60">⌘B</span>
+                                            </a>
+                                            <a href="#_" class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                                <span>Settings</span>
+                                                <span class="ml-auto text-xs tracking-widest opacity-60">⌘S</span>
+                                            </a>
+                                            <a href="#_" class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2"><rect width="20" height="16" x="2" y="4" rx="2" ry="2"></rect><path d="M6 8h.001"></path><path d="M10 8h.001"></path><path d="M14 8h.001"></path><path d="M18 8h.001"></path><path d="M8 12h.001"></path><path d="M12 12h.001"></path><path d="M16 12h.001"></path><path d="M7 16h10"></path></svg>
+                                                <span>Keyboard shortcuts</span>
+                                                <span class="ml-auto text-xs tracking-widest opacity-60">⌘K</span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </button>
                             </div>
                         </div>
