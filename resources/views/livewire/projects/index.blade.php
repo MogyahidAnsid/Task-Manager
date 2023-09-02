@@ -17,7 +17,7 @@
         <!-- Tabs -->
         <div class="flex items-center justify-between  border-b">
             <div class="flex items-center space-x-7">
-                <button class="text-sm pb-3 border-b-2 border-orange-500">All Projects (0)</button>
+                <button class="text-sm pb-3 border-b-2 border-orange-500">All Projects ({{ $projects->count() }})</button>
                 <button class="text-gray-500 text-sm pb-3">Completed</button>
                 <button class="text-gray-500 text-sm pb-3">Archived</button>
                 <button class="text-gray-500 text-sm pb-3">Closed</button>
@@ -91,15 +91,22 @@
                             <div class="flex items-center justify-between text-xss">
                                 <div class="flex items-center space-x-3">
                                     <!-- Stack Avatar -->
-                                    <div class="relative -space-x-3">
-                                        <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500 bg-red-50">
+                                    <div class="relative -space-x-3 flex">
+                                        <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
                                             <img src="https://api.multiavatar.com/JohnDoe.svg" class="w-full h-full inset-0 absolute" alt="">
                                         </button>
-                                        <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500 bg-red-50">
+                                        <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
                                             <img src="https://api.multiavatar.com/Art.svg" class="w-full h-full inset-0 absolute" alt="">
                                         </button>
-                                        <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500 bg-red-50">
+                                        <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
                                             <img src="https://api.multiavatar.com/Jane.svg" class="w-full h-full inset-0 absolute" alt="">
+                                        </button>
+                                        <button class="h-7 w-7 hover:z-50 rounded-full relative border-transparent hover:bg-orange-200 bg-orange-50">
+                                            <div class="flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24">
+                                                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1" d="M6 12h6m6 0h-6m0 0V6m0 6v6"/>
+                                                </svg>
+                                            </div>
                                         </button>
                                     </div>
                                     
