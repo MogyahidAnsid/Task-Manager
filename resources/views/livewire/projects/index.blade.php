@@ -60,7 +60,7 @@
                     <div class="border p-3 my-2 transition-colors relative group">                        
                         <div class="flex items-center justify-between">
                             <button class="flex items-center space-x-1">
-                                <span class="font-medium">Search inspiration for upcoming event</span>
+                                <span class="font-medium">{{ $project->name }}</span>
                             </button>
 
                             <div class="flex items-center space-x-2 text-xs font-medium">
@@ -70,9 +70,9 @@
                                     </svg>
                                     <span class="font-medium">107:57:23</span>
                                 </button>
-                                <button class="border p-1.5 rounded-md flex items-center space-x-1 hover:bg-gray-50 transition-colors">
-                                    <span class="h-2 w-2 bg-red-500 rounded-full"></span>
-                                    <span>High Priority</span>
+                                <button class="border p-1.5 rounded-md flex items-center space-x-1 hover:bg-gray-50 transition-colors {{ $project->priority['color'] }}">
+                                    {{-- <span class="h-2 w-2 rounded-full {{ $project->priority['color'] }}"></span> --}}
+                                    <span>{{ $project->priority['label'] }}</span>
                                 </button>
                                 <button class="border p-1.5 rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
@@ -83,7 +83,7 @@
                         </div>
 
                         <div>
-                            <p class="text-sm text-gray-500 py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis animi in magni libero aliquam, ut quisquam sit ex quasi beatae! Quas ipsa tempore soluta alias magni. Hic obcaecati sed, corporis ab aspernatur vero quia illum quas veritatis unde rem quaerat ipsam reprehenderit, facilis veniam facere! Molestiae consectetur dolor aliquid voluptatum...</p>
+                            <p class="text-sm text-gray-500 py-3">{{ $project->description }}</p>
                             
                             <div class="flex items-center justify-between text-xss">
                                 <div class="flex items-center space-x-3">
