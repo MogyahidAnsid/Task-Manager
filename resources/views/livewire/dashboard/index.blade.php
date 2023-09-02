@@ -3,3 +3,11 @@
         <h1 class="font-semibold text-lg">Overview</h1>
     </div>
 </div>
+
+@push('alpine_script')
+    <script>
+        document.addEventListener('alpine:init', () => {
+            console.log('Dashboard!');
+        });
+    </script>
+@endpush

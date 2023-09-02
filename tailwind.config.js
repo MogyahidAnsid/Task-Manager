@@ -11,6 +11,9 @@ export default {
 
     theme: {
         extend: {
+            fontSize: {
+                xss: '0.8rem'
+            },
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },

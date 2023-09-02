@@ -27,6 +27,9 @@
                     <x-nav-link :href="route('teams')" :active="request()->routeIs('teams')">
                         {{ __('Team') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('components')" :active="request()->routeIs('components')">
+                        {{ __('Components') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -54,7 +57,7 @@
                                 alt="{{ Auth::user()->fullName }}">
                             <div class="text-left">
                                 <h1 class="font-semibold text-gray-800">{{ Auth::user()->fullName }}</h1>
-                                <span class="font-normal text-gray-400">{{ Auth::user()->role }}</span>
+                                <span class="font-normal text-sm text-gray-400">{{ Auth::user()->role }}</span>
                             </div>
                         </button>
                     </x-slot>
