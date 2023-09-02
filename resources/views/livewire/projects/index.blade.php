@@ -58,10 +58,11 @@
         </div>
 
         <!-- Project Content -->
-        <div class="w-full" :class="{ 'grid grid-cols-3 gap-4' : !isDisplayRow}">
+        <div class="w-full mt-3" :class="{ 'grid grid-cols-3 gap-3' : !isDisplayRow}">
             @forelse ($projects as $project)
-                <div>
-                    <div class="border p-3 my-2 transition-colors relative group">                        
+                <!-- Row Display -->
+                <div x-show="isDisplayRow" class="my-2">
+                    <div class="border p-3 relative hover:shadow-md hover:shadow-gray-200 transition-shadow group">                        
                         <div class="flex items-center justify-between">
                             <button class="flex items-center space-x-1">
                                 <span class="font-medium">{{ $project->name }}</span>
@@ -93,13 +94,13 @@
                                     <!-- Stack Avatar -->
                                     <div class="relative -space-x-3 flex">
                                         <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
-                                            <img src="https://api.multiavatar.com/JohnDoe.svg" class="w-full h-full inset-0 absolute" alt="">
+                                            <img :src="`https://api.multiavatar.com/trlsas{{ $project->id }}.svg`" class="w-full h-full inset-0 absolute" alt="">
                                         </button>
                                         <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
-                                            <img src="https://api.multiavatar.com/Art.svg" class="w-full h-full inset-0 absolute" alt="">
+                                            <img :src="`https://api.multiavatar.com/fdsfds{{ $project->id }}.svg`" class="w-full h-full inset-0 absolute" alt="">
                                         </button>
                                         <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
-                                            <img src="https://api.multiavatar.com/Jane.svg" class="w-full h-full inset-0 absolute" alt="">
+                                            <img src="https://api.multiavatar.com/2oekjoid2{{ $project->id }}.svg" class="w-full h-full inset-0 absolute" alt="">
                                         </button>
                                         <button class="h-7 w-7 hover:z-50 rounded-full relative border-transparent hover:bg-orange-200 bg-orange-50">
                                             <div class="flex items-center justify-center">
@@ -132,6 +133,86 @@
                         </div>
 
                         <button class="absolute hidden group-hover:block -z-0 bottom-2 w-full text-center text-sm text-gray-300 hover:text-orange-500 transition-colors">Show more</button>
+                    </div>
+                </div>
+
+                <!-- Grid Display -->
+                <div x-show="!isDisplayRow">
+                    <div class="border p-3 transition-colors relative group">                        
+                        <div class="flex items-center justify-between">
+                            <h1 class="font-medium">Lorem ipsum dolor sit amet.</h1>
+
+                            <div class="flex items-center space-x-2 text-xs font-medium">
+                                <button class="border p-1 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                        <path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12.5a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1Zm-8 0a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1Zm-8 0a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1Z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            {{-- <p class="text-sm text-gray-500 py-3">{{ $project->description }}</p> --}}
+                            <p class="text-sm text-gray-500 py-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis, ex!</p>
+
+                            <div class="flex items-center space-x-2 text-xs font-medium justify-between">
+                                <!-- Stack Avatar -->
+                                <div class="relative -space-x-3 flex">
+                                    <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
+                                        <img :src="`https://api.multiavatar.com/dfsl2oe2{{ $project->id }}.svg`" class="w-full h-full inset-0 absolute" alt="">
+                                    </button>
+                                    <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
+                                        <img :src="`https://api.multiavatar.com/dgdfqop{{ $project->id }}.svg`" class="w-full h-full inset-0 absolute" alt="">
+                                    </button>
+                                    <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
+                                        <img :src="`https://api.multiavatar.com/gdfecxq{{ $project->id }}.svg`" class="w-full h-full inset-0 absolute" alt="">
+                                    </button>
+                                    <button class="h-7 w-7 hover:z-50 rounded-full relative border-transparent hover:bg-orange-200 bg-orange-50">
+                                        <div class="flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24">
+                                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1" d="M6 12h6m6 0h-6m0 0V6m0 6v6"/>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </div>
+
+                                <div class="flex items-center space-x-2 text-xs font-medium ">
+                                    <button class="flex items-center space-x-1 bg-gray-50 p-1 rounded-md text-gray-800 border font-semibold">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.906 4.537A.6.6 0 0 0 6 5.053v13.894a.6.6 0 0 0 .906.516l11.723-6.947a.6.6 0 0 0 0-1.032L6.906 4.537Z"/>
+                                        </svg>
+                                        <span class="font-medium">107:57:23</span>
+                                    </button>
+                                    <button class="border p-1 rounded-md flex items-center space-x-1 hover:bg-gray-50 transition-colors {{ $project->priority['color'] }}">
+                                        <span>{{ $project->priority['label'] }}</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between text-xss mt-2">
+                                <div class="flex items-center space-x-3">
+                                    <div class="flex items-center space-x-1">
+                                        <div class="h-1.5 bg-orange-50 rounded-full w-24 overflow-hidden relative">
+                                            <span :style="'width:' + 25 + '%'" class="absolute w-24 h-full duration-300 bg-orange-500 ease"></span>
+                                        </div>
+                                        <span class="text-gray-400">25% Complete</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <button class="flex items-center space-x-1 hover:bg-orange-50 p-1 rounded-md text-orange-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                                                <path d="M18 20a2 2 0 1 0 0-4a2 2 0 0 0 0 4ZM6 21V7"/>
+                                                <path d="M6 7v2c0 3.5 2.5 9 8.5 9H16M6 7a2 2 0 1 0 0-4a2 2 0 0 0 0 4Z"/>
+                                            </g>
+                                        </svg>
+                                        <span>Create subtask</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- <button class="absolute hidden group-hover:block -z-0 bottom-2 w-full text-center text-sm text-gray-300 hover:text-orange-500 transition-colors">Show more</button> --}}
                     </div>
                 </div>
             @empty
@@ -214,7 +295,7 @@
         document.addEventListener('alpine:init', () => {
             Alpine.data('Project', () => ({
                 projectModal: false,
-                isDisplayRow: true,
+                isDisplayRow: false,
 
                 openProjectModal() {
                     this.projectModal = true;
@@ -226,7 +307,7 @@
 
                 toggleDisplayGrid(){
                     this.isDisplayRow = false;
-                }
+                },
             }));
         });
     </script>
