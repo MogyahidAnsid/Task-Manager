@@ -18,6 +18,7 @@
     "dependencies": {
         "@alpinejs/focus": "^3.13.0",
         "@ryangjchandler/alpine-clipboard": "^2.2.0",
-        "alpinejs": "^3.12.3"
+        "alpinejs": "^3.12.3",
+        "trix": "^2.0.5"
     }
 }
