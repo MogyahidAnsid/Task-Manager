@@ -6,12 +6,13 @@
                 <h1 class="text-2xl font-extrabold tracking-normal">Projects</h1>
             </div>
     
-            <button @click="openProjectModal()" class="inline-flex items-center justify-center h-10 px-3 py-2 text-sm font-medium text-white transition-colors border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 bg-orange-600 hover:bg-orange-500">
+            <x-primary-button @click="openProjectModal()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24">
                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1" d="M6 12h6m6 0h-6m0 0V6m0 6v6"/>
                 </svg>
                 <span class="pr-1.5 pl-1 font-medium">New Project</span>
-            </button>
+            </x-primary-button>
+
         </div>
     
         <!-- Tabs -->
