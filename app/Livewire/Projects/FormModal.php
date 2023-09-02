@@ -7,17 +7,8 @@ use Livewire\Component;
 
 class FormModal extends Component
 {
-    public $showModal = false;
-
     public function mount()
     {
-    }
-
-    #[On('openCreateProjectModal')]
-    public function saveProject()
-    {
-        // saving function
-        dd('save project');
     }
 
     public function render()

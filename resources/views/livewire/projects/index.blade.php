@@ -40,10 +40,88 @@
                 </button>
             </div>
         </div>
-    </div>
 
-    <div x-show="projectModal">
-        <livewire:projects.form-modal />
+        <!-- Project Content -->
+        <div class="w-full">
+            @forelse ($projects as $project)
+                <div>
+                    <div class="border p-3 my-2 transition-colors relative group">                        
+                        <div class="flex items-center justify-between">
+                            <button class="flex items-center space-x-1">
+                                <span class="font-medium">Search inspiration for upcoming event</span>
+                            </button>
+
+                            <div class="flex items-center space-x-2 text-xs font-medium">
+                                <button class="flex items-center space-x-1 bg-gray-50 p-1.5 rounded-md text-gray-800 border font-semibold">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.906 4.537A.6.6 0 0 0 6 5.053v13.894a.6.6 0 0 0 .906.516l11.723-6.947a.6.6 0 0 0 0-1.032L6.906 4.537Z"/>
+                                    </svg>
+                                    <span class="font-medium">107:57:23</span>
+                                </button>
+                                <button class="border p-1.5 rounded-md flex items-center space-x-1 hover:bg-gray-50 transition-colors">
+                                    <span class="h-2 w-2 bg-red-500 rounded-full"></span>
+                                    <span>High Priority</span>
+                                </button>
+                                <button class="border p-1.5 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                        <path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12.5a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1Zm-8 0a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1Zm-8 0a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1Z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p class="text-sm text-gray-500 py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis animi in magni libero aliquam, ut quisquam sit ex quasi beatae! Quas ipsa tempore soluta alias magni. Hic obcaecati sed, corporis ab aspernatur vero quia illum quas veritatis unde rem quaerat ipsam reprehenderit, facilis veniam facere! Molestiae consectetur dolor aliquid voluptatum...</p>
+                            
+                            <div class="flex items-center justify-between text-xss">
+                                <div class="flex items-center space-x-3">
+                                    <!-- Stack Avatar -->
+                                    <div class="relative -space-x-3">
+                                        <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500 bg-red-50">
+                                            <img src="https://api.multiavatar.com/JohnDoe.svg" class="w-full h-full inset-0 absolute" alt="">
+                                        </button>
+                                        <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500 bg-red-50">
+                                            <img src="https://api.multiavatar.com/Art.svg" class="w-full h-full inset-0 absolute" alt="">
+                                        </button>
+                                        <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500 bg-red-50">
+                                            <img src="https://api.multiavatar.com/Jane.svg" class="w-full h-full inset-0 absolute" alt="">
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-1">
+                                        <div class="h-1.5 bg-orange-50 rounded-full w-24 overflow-hidden relative">
+                                            <span :style="'width:' + 25 + '%'" class="absolute w-24 h-full duration-300 bg-orange-500 ease"></span>
+                                        </div>
+                                        <span class="text-gray-400">25% Complete</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <button class="flex items-center space-x-1 hover:bg-orange-50 p-1 rounded-md text-orange-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                                                <path d="M18 20a2 2 0 1 0 0-4a2 2 0 0 0 0 4ZM6 21V7"/>
+                                                <path d="M6 7v2c0 3.5 2.5 9 8.5 9H16M6 7a2 2 0 1 0 0-4a2 2 0 0 0 0 4Z"/>
+                                            </g>
+                                        </svg>
+                                        <span>Create subtask</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="absolute hidden group-hover:block -z-0 bottom-2 w-full text-center text-sm text-gray-300 hover:text-orange-500 transition-colors">Show more</button>
+                    </div>
+                </div>
+            @empty
+                <div class="text-center flex flex-col items-center py-20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 21a2 2 0 1 0 0-4a2 2 0 0 0 0 4ZM6 21a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm0-10v6m12 0V7s0-2-2-2h-4M4 7.243L6.121 5.12m0 0L8.243 3M6.12 5.121L4 3m2.121 2.121l2.122 2.122"/>
+                    </svg>
+                    <h1 class="font-medium text-lg mt-3">There are no project created at the moment!</h1>
+                    <p class="text-gray-600 text-sm">Create your first project by clicking the 'New Project' button above.</p>
+                </div>
+            @endforelse
+        </div>
     </div>
 
     <!-- Right Sidebar -->
@@ -102,6 +180,10 @@
                 <button class="px-2 py-1.5 rounded-tl-md rounded-tr-md font-medium border text-gray-600 hover:bg-gray-100 bg-gray-50">Timeline</button>
             </div>
         </div>
+    </div>
+
+    <div x-show="projectModal">
+        <livewire:projects.form-modal />
     </div>
 </div>
 

@@ -7,7 +7,7 @@
         x-transition:leave="ease-in duration-300"
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
-        @click="projectModal=false" class="absolute inset-0 w-full h-full bg-white backdrop-blur-sm bg-opacity-70"></div>
+        @click="projectModal=false" class="absolute inset-0 w-full h-full bg-black/40 backdrop-blur-sm bg-opacity-70"></div>
     <div x-show="projectModal"
         x-trap.inert.noscroll="projectModal"
         x-transition:enter="ease-out duration-300"
