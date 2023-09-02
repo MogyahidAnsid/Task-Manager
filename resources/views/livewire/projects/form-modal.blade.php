@@ -25,14 +25,40 @@
             </button>
         </div>
 
-        <div class="relative w-auto text-sm py-5 space-y-3">
+        
+        <div class="relative w-auto text-sm py-3 space-y-3">
             <div>
                 <x-input-label for="title" :value="__('Project Title')" />
 
-                <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                    autocomplete="current-password" />
+                <x-text-input id="title" class="block mt-1 w-full" type="text" name="title" required />
 
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            </div>
+
+            <div class="flex items-center space-x-2 justify-between">
+                <div class="flex-1">
+                    <x-input-label for="status" :value="__('Status')" />
+
+                    <x-select-option id="status" class="mt-1 w-full bg-gray-50" :options="['active', 'inactive', 'pending', 'completed']" />
+    
+                    <x-input-error :messages="$errors->get('status')" class="mt-2" />
+                </div>
+
+                <div class="flex-1">
+                    <x-input-label for="priority" :value="__('Priority')" />
+    
+                    <x-select-option id="priority" class="mt-1 w-full bg-gray-50" :options="['active', 'inactive', 'pending', 'completed']" />
+    
+                    <x-input-error :messages="$errors->get('priority')" class="mt-2" />
+                </div>
+            </div>
+
+            <div>
+                <x-input-label for="assign" :value="__('Assign')" />
+
+                <x-text-input id="assign" class="block mt-1 w-full" type="text" name="assign" required />
+
+                <x-input-error :messages="$errors->get('assign')" class="mt-2" />
             </div>
 
             <div>
@@ -58,7 +84,7 @@
     <script>
         window.addEventListener('livewire:load', () => {
             Livewire.on('closeProjectModal', () => {
-                projectModal = false
+                options: ['active', 'inactive', 'pending', 'completed']
             })
         })
     </script>
