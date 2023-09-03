@@ -9,7 +9,27 @@ enum PriorityEnum: string
     case NORMAL = 'normal';
     case LOW = "low";
 
+    public function icon()
+    {
+        return match ($this) {
+            self::URGENT => '⚡',
+            self::HIGH => '🔥',
+            self::NORMAL => '🚀',
+            self::LOW => '👍',
+        };
+    }
+
     public function label()
+    {
+        return match ($this) {
+            self::URGENT => 'Urgent',
+            self::HIGH => 'High Priority',
+            self::NORMAL => 'Normal',
+            self::LOW => 'Low',
+        };
+    }
+
+    public function iconLabel()
     {
         return match ($this) {
             self::URGENT => '⚡Urgent',

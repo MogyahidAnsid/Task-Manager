@@ -2,10 +2,10 @@
 
 namespace App\Enum;
 
-enum ProjectStatusEnum: int
+enum ProjectStatusEnum: string
 {
-    const NEW_PROJECT = 0;
-    const COMPLETED = 1;
+    case NEW_PROJECT = 'new_project';
+    case COMPLETED = 'completed';
 
     public function label()
     {

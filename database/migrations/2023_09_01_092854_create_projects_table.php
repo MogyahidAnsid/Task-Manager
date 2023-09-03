@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('slug')->nullable();
             $table->text('excerpt')->nullable();
-            $table->boolean('status')->default(0);
+            $table->string('status')->default('new_project');
             $table->string('priority')->default('normal');
             $table->timestamps();
         });
