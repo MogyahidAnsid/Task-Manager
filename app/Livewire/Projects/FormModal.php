@@ -2,13 +2,21 @@
 
 namespace App\Livewire\Projects;
 
-use Livewire\Attributes\On;
+use App\Livewire\Projects\Index;
+use Illuminate\Support\Collection;
 use Livewire\Component;
+use Symfony\Component\Routing\Annotation\Route;
 
 class FormModal extends Component
 {
     public function mount()
     {
+    }
+
+    public function save()
+    {
+        sleep(5);
+        $this->dispatch('project-created');
     }
 
     public function render()
