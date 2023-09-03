@@ -22,7 +22,7 @@
         <div class="bg-white">
             @include('layouts.navigation')
 
-            <main class="overflow-hidden px-4 mx-auto sm:px-6 lg:px-14">
+            <main class="px-4 mx-auto overflow-hidden sm:px-6 lg:px-14">
                 {{ $slot }}
             </main>
         </div>
