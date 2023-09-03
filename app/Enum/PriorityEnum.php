@@ -32,10 +32,10 @@ enum PriorityEnum: string
     public function iconLabel()
     {
         return match ($this) {
-            self::URGENT => '⚡Urgent',
-            self::HIGH => '🔥High Priority',
-            self::NORMAL => '🚀Normal',
-            self::LOW => '👍Low',
+            self::URGENT => '⚡ Urgent',
+            self::HIGH => '🔥 High Priority',
+            self::NORMAL => '🚀 Normal',
+            self::LOW => '👍 Low',
         };
     }
 

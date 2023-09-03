@@ -1,7 +1,7 @@
 <div x-data="Project" class="flex items-start">
 
     <div class="flex-1">
-        <div class="text-gray-900 py-6 flex items-center justify-between">
+        <div class="flex items-center justify-between py-6 text-gray-900">
             <div>
                 <h1 class="text-2xl font-extrabold tracking-normal">Projects</h1>
             </div>
@@ -16,15 +16,15 @@
         </div>
     
         <!-- Tabs -->
-        <div class="flex items-center justify-between  border-b">
+        <div class="flex items-center justify-between border-b">
             <div class="flex items-center space-x-7">
-                <button class="text-sm pb-3 border-b-2 border-orange-500">All Projects ({{ $projects->count() }})</button>
-                <button class="text-gray-500 text-sm pb-3">Completed</button>
-                <button class="text-gray-500 text-sm pb-3">Archived</button>
-                <button class="text-gray-500 text-sm pb-3">Closed</button>
+                <button class="pb-3 text-sm border-b-2 border-orange-500">All Projects ({{ $projects->count() }})</button>
+                <button class="pb-3 text-sm text-gray-500">Completed</button>
+                <button class="pb-3 text-sm text-gray-500">Archived</button>
+                <button class="pb-3 text-sm text-gray-500">Closed</button>
             </div>
             <div class="flex items-center space-x-5">
-                <button @click="toggleFilterDropDown()" class="text-gray-500 relative hover:text-orange-500 text-sm font-medium pb-3 flex items-center space-x-1">
+                <button @click="toggleFilterDropDown()" class="relative flex items-center pb-3 space-x-1 text-sm font-medium text-gray-500 hover:text-orange-500">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"/>
                     </svg>
@@ -99,7 +99,7 @@
                     </div>
                 </button>
 
-                <button @click="toggleExportDropDown()" class="text-gray-500 relative hover:text-orange-500 text-sm font-medium pb-3 flex items-center space-x-1">
+                <button @click="toggleExportDropDown()" class="relative flex items-center pb-3 space-x-1 text-sm font-medium text-gray-500 hover:text-orange-500">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
                         <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                             <path d="M4 6v6s0 3 7 3s7-3 7-3V6"/>
@@ -137,14 +137,14 @@
                 </button>
                 <div class="flex items-center space-x-2">
                     <button @click="toggleDisplayRow()" 
-                        class="text-gray-500 hover:text-orange-500 text-sm font-medium pb-3 flex items-center space-x-1"
+                        class="flex items-center pb-3 space-x-1 text-sm font-medium text-gray-500 hover:text-orange-500"
                         :class="{ 'text-orange-500' : isDisplayRow }">
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z"/>
                         </svg>
                     </button>
                     <button @click="toggleDisplayGrid()" 
-                        class="text-gray-500 hover:text-orange-500 text-sm font-medium pb-3 flex items-center space-x-1"
+                        class="flex items-center pb-3 space-x-1 text-sm font-medium text-gray-500 hover:text-orange-500"
                         :class="{ 'text-orange-500' : !isDisplayRow }">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125Z"/>
@@ -159,21 +159,21 @@
             @forelse ($projects as $project)
                 <!-- Row Display -->
                 <div x-data="{ moreOptionsDropdown }" x-show="isDisplayRow" class="my-2">
-                    <div class="border p-3 relative hover:shadow-md hover:shadow-gray-200 transition-shadow group">                        
+                    <div class="relative p-3 transition-shadow border hover:shadow-md hover:shadow-gray-200 group">                        
                         <div class="flex items-center justify-between">
                             <button class="flex items-center space-x-1">
                                 <span class="font-medium">{{ $project->name }}</span>
                             </button>
 
                             <div class="flex items-center space-x-2 text-xs font-medium">
-                                <button class="flex items-center space-x-1 bg-gray-50 p-1.5 rounded-md text-gray-800 border font-semibold">
+                                <button @click="startTimer()" class="flex items-center space-x-1 bg-gray-50 p-1.5 rounded-md text-gray-800 border font-semibold">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
                                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.906 4.537A.6.6 0 0 0 6 5.053v13.894a.6.6 0 0 0 .906.516l11.723-6.947a.6.6 0 0 0 0-1.032L6.906 4.537Z"/>
                                     </svg>
-                                    <span class="font-medium">107:57:23</span>
+                                    <span class="font-medium">00:00:00</span>
                                 </button>
                                 <button class="border p-1.5 rounded-md flex items-center space-x-1 hover:bg-gray-50 transition-colors {{ $project->priority['color'] }}">
-                                    <span>{{ $project->priority['label'] }}</span>
+                                    <span>{{ $project->priority['iconLabel'] }}</span>
                                 </button>
                                 <button @click="toggleMoreOptions()" class="border p-1.5 rounded-md relative">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
@@ -185,7 +185,7 @@
                                         x-transition:enter="ease-out duration-200"
                                         x-transition:enter-start="-translate-y-2"
                                         x-transition:enter-end="translate-y-0"
-                                        class="absolute top-0 z-50 -right-5 w-56 mt-5"
+                                        class="absolute top-0 z-50 w-56 mt-5 -right-5"
                                         x-cloak>
                                         <div class="p-1 mt-1 bg-white border rounded-md shadow-md border-neutral-200/70 text-neutral-700">
                                             <a href="#_" class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
@@ -214,22 +214,22 @@
                         </div>
 
                         <div>
-                            <p class="text-sm text-gray-500 py-3">{{ $project->description }}</p>
+                            <p class="py-3 text-sm text-gray-500">{{ $project->description }}</p>
                             
                             <div class="flex items-center justify-between text-xss">
                                 <div class="flex items-center space-x-3">
                                     <!-- Stack Avatar -->
-                                    <div class="relative -space-x-3 flex">
-                                        <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
-                                            <img :src="`https://api.multiavatar.com/trlsas{{ $project->id }}.svg`" class="w-full h-full inset-0 absolute" alt="">
+                                    <div class="relative flex -space-x-3">
+                                        <button class="relative border-2 border-transparent rounded-full h-7 w-7 hover:z-50 hover:scale-125 hover:border-2 hover:border-orange-500">
+                                            <img :src="`https://api.multiavatar.com/trlsas{{ $project->id }}.svg`" class="absolute inset-0 w-full h-full" alt="">
                                         </button>
-                                        <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
-                                            <img :src="`https://api.multiavatar.com/fdsfds{{ $project->id }}.svg`" class="w-full h-full inset-0 absolute" alt="">
+                                        <button class="relative border-2 border-transparent rounded-full h-7 w-7 hover:z-50 hover:scale-125 hover:border-2 hover:border-orange-500">
+                                            <img :src="`https://api.multiavatar.com/fdsfds{{ $project->id }}.svg`" class="absolute inset-0 w-full h-full" alt="">
                                         </button>
-                                        <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
-                                            <img src="https://api.multiavatar.com/2oekjoid2{{ $project->id }}.svg" class="w-full h-full inset-0 absolute" alt="">
+                                        <button class="relative border-2 border-transparent rounded-full h-7 w-7 hover:z-50 hover:scale-125 hover:border-2 hover:border-orange-500">
+                                            <img src="https://api.multiavatar.com/2oekjoid2{{ $project->id }}.svg" class="absolute inset-0 w-full h-full" alt="">
                                         </button>
-                                        <button class="h-7 w-7 hover:z-50 rounded-full relative border-transparent hover:bg-orange-200 bg-orange-50">
+                                        <button class="relative border-transparent rounded-full h-7 w-7 hover:z-50 hover:bg-orange-200 bg-orange-50">
                                             <div class="flex items-center justify-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24">
                                                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1" d="M6 12h6m6 0h-6m0 0V6m0 6v6"/>
@@ -246,7 +246,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-2">
-                                    <button class="flex items-center space-x-1 hover:bg-orange-50 p-1 rounded-md text-orange-500">
+                                    <button class="flex items-center p-1 space-x-1 text-orange-500 rounded-md hover:bg-orange-50">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
                                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
                                                 <path d="M18 20a2 2 0 1 0 0-4a2 2 0 0 0 0 4ZM6 21V7"/>
@@ -259,18 +259,18 @@
                             </div>
                         </div>
 
-                        <button class="absolute hidden group-hover:block -z-0 bottom-2 w-full text-center text-sm text-gray-300 hover:text-orange-500 transition-colors">Show more</button>
+                        <button class="absolute hidden w-full text-sm text-center text-gray-300 transition-colors group-hover:block -z-0 bottom-2 hover:text-orange-500">Show more</button>
                     </div>
                 </div>
 
                 <!-- Grid Display -->
                 <div x-data="{ moreOptionsDropdown }" x-show="!isDisplayRow">
-                    <div class="border p-3 transition-colors relative group">                        
+                    <div class="relative p-3 transition-colors border group">                        
                         <div class="flex items-center justify-between">
                             <h1 class="font-medium">Lorem ipsum dolor sit amet.</h1>
 
                             <div class="flex items-center space-x-2 text-xs font-medium">
-                                <button @click="toggleMoreOptions()" class="border p-1 rounded-md relative">
+                                <button @click="toggleMoreOptions()" class="relative p-1 border rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
                                         <path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12.5a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1Zm-8 0a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1Zm-8 0a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1Z"/>
                                     </svg>
@@ -280,7 +280,7 @@
                                         x-transition:enter="ease-out duration-200"
                                         x-transition:enter-start="-translate-y-2"
                                         x-transition:enter-end="translate-y-0"
-                                        class="absolute top-0 z-50 -right-5 w-56 mt-5"
+                                        class="absolute top-0 z-50 w-56 mt-5 -right-5"
                                         x-cloak>
                                         <div class="p-1 mt-1 bg-white border rounded-md shadow-md border-neutral-200/70 text-neutral-700">
                                             <a href="#_" class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
@@ -309,22 +309,22 @@
                         </div>
 
                         <div>
-                            {{-- <p class="text-sm text-gray-500 py-3">{{ $project->description }}</p> --}}
-                            <p class="text-sm text-gray-500 py-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis, ex!</p>
+                            {{-- <p class="py-3 text-sm text-gray-500">{{ $project->description }}</p> --}}
+                            <p class="py-3 text-sm text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis, ex!</p>
 
-                            <div class="flex items-center space-x-2 text-xs font-medium justify-between">
+                            <div class="flex items-center justify-between space-x-2 text-xs font-medium">
                                 <!-- Stack Avatar -->
-                                <div class="relative -space-x-3 flex">
-                                    <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
-                                        <img :src="`https://api.multiavatar.com/dfsl2oe2{{ $project->id }}.svg`" class="w-full h-full inset-0 absolute" alt="">
+                                <div class="relative flex -space-x-3">
+                                    <button class="relative border-2 border-transparent rounded-full h-7 w-7 hover:z-50 hover:scale-125 hover:border-2 hover:border-orange-500">
+                                        <img :src="`https://api.multiavatar.com/dfsl2oe2{{ $project->id }}.svg`" class="absolute inset-0 w-full h-full" alt="">
                                     </button>
-                                    <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
-                                        <img :src="`https://api.multiavatar.com/dgdfqop{{ $project->id }}.svg`" class="w-full h-full inset-0 absolute" alt="">
+                                    <button class="relative border-2 border-transparent rounded-full h-7 w-7 hover:z-50 hover:scale-125 hover:border-2 hover:border-orange-500">
+                                        <img :src="`https://api.multiavatar.com/dgdfqop{{ $project->id }}.svg`" class="absolute inset-0 w-full h-full" alt="">
                                     </button>
-                                    <button class="h-7 w-7 hover:z-50 hover:scale-125 rounded-full relative border-2 border-transparent hover:border-2 hover:border-orange-500">
-                                        <img :src="`https://api.multiavatar.com/gdfecxq{{ $project->id }}.svg`" class="w-full h-full inset-0 absolute" alt="">
+                                    <button class="relative border-2 border-transparent rounded-full h-7 w-7 hover:z-50 hover:scale-125 hover:border-2 hover:border-orange-500">
+                                        <img :src="`https://api.multiavatar.com/gdfecxq{{ $project->id }}.svg`" class="absolute inset-0 w-full h-full" alt="">
                                     </button>
-                                    <button class="h-7 w-7 hover:z-50 rounded-full relative border-transparent hover:bg-orange-200 bg-orange-50">
+                                    <button class="relative border-transparent rounded-full h-7 w-7 hover:z-50 hover:bg-orange-200 bg-orange-50">
                                         <div class="flex items-center justify-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24">
                                                 <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1" d="M6 12h6m6 0h-6m0 0V6m0 6v6"/>
@@ -334,19 +334,19 @@
                                 </div>
 
                                 <div class="flex items-center space-x-2 text-xs font-medium ">
-                                    <button class="flex items-center space-x-1 bg-gray-50 p-1 rounded-md text-gray-800 border font-semibold">
+                                    <button class="flex items-center p-1 space-x-1 font-semibold text-gray-800 border rounded-md bg-gray-50">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
                                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.906 4.537A.6.6 0 0 0 6 5.053v13.894a.6.6 0 0 0 .906.516l11.723-6.947a.6.6 0 0 0 0-1.032L6.906 4.537Z"/>
                                         </svg>
-                                        <span class="font-medium">107:57:23</span>
+                                        <span class="font-medium">00:00:00</span>
                                     </button>
                                     <button class="border p-1 rounded-md flex items-center space-x-1 hover:bg-gray-50 transition-colors {{ $project->priority['color'] }}">
-                                        <span>{{ $project->priority['label'] }}</span>
+                                        <span>{{ $project->priority['iconLabel'] }}</span>
                                     </button>
                                 </div>
                             </div>
                             
-                            <div class="flex items-center justify-between text-xss mt-2">
+                            <div class="flex items-center justify-between mt-2 text-xss">
                                 <div class="flex items-center space-x-3">
                                     <div class="flex items-center space-x-1">
                                         <div class="h-1.5 bg-orange-50 rounded-full w-24 overflow-hidden relative">
@@ -356,7 +356,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-2">
-                                    <button class="flex items-center space-x-1 hover:bg-orange-50 p-1 rounded-md text-orange-500">
+                                    <button class="flex items-center p-1 space-x-1 text-orange-500 rounded-md hover:bg-orange-50">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
                                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
                                                 <path d="M18 20a2 2 0 1 0 0-4a2 2 0 0 0 0 4ZM6 21V7"/>
@@ -368,17 +368,15 @@
                                 </div>
                             </div>
                         </div>
-
-                        {{-- <button class="absolute hidden group-hover:block -z-0 bottom-2 w-full text-center text-sm text-gray-300 hover:text-orange-500 transition-colors">Show more</button> --}}
                     </div>
                 </div>
             @empty
-                <div class="text-center flex flex-col items-center py-20">
+                <div class="flex flex-col items-center py-20 text-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 21a2 2 0 1 0 0-4a2 2 0 0 0 0 4ZM6 21a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm0-10v6m12 0V7s0-2-2-2h-4M4 7.243L6.121 5.12m0 0L8.243 3M6.12 5.121L4 3m2.121 2.121l2.122 2.122"/>
                     </svg>
-                    <h1 class="font-medium text-lg mt-3">There are no project created at the moment!</h1>
-                    <p class="text-gray-600 text-sm">Click <button @click="openProjectModal()" class="font-semibold text-orange-500 hover:underline">Create First Project</button> or just click the 'New Project' button above.</p>
+                    <h1 class="mt-3 text-lg font-medium">There are no project created at the moment!</h1>
+                    <p class="text-sm text-gray-600">Click <button @click="openProjectModal()" class="font-semibold text-orange-500 hover:underline">Create First Project</button> or just click the 'New Project' button above.</p>
                 </div>
             @endforelse
         </div>
@@ -387,11 +385,11 @@
     <!-- Right Sidebar -->
     <div class="bg-white w-[30rem] ml-7 border-l -mr-14 pb-7 h-screen">
         <div class="p-7">
-            <h1 class="font-semibold tracking-tight text-lg">Design System</h1>
+            <h1 class="text-lg font-semibold tracking-tight">Design System</h1>
 
-            <div class="text-gray-400 mt-3">
+            <div class="mt-3 text-gray-400">
                 <div class="space-y-4">
-                    <div class="text-sm flex font-medium items-center space-x-1">
+                    <div class="flex items-center space-x-1 text-sm font-medium">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2">
                                 <path d="M1 20v-1a7 7 0 0 1 7-7v0a7 7 0 0 1 7 7v1"/>
@@ -402,28 +400,28 @@
                         <span>Assignee</span>
                     </div>
                     
-                    <div class="text-sm flex font-medium items-center space-x-1">
+                    <div class="flex items-center space-x-1 text-sm font-medium">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-width="2" d="M3 17.4V6.6a.6.6 0 0 1 .6-.6h13.079c.2 0 .388.1.5.267l3.6 5.4a.6.6 0 0 1 0 .666l-3.6 5.4a.6.6 0 0 1-.5.267H3.6a.6.6 0 0 1-.6-.6Z"/>
                         </svg>
                         <span>Tags</span>
                     </div>
 
-                    <div class="text-sm flex font-medium items-center space-x-1">
+                    <div class="flex items-center space-x-1 text-sm font-medium">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15l.95-10.454A.6.6 0 0 1 6.548 4h13.795a.6.6 0 0 1 .598.654l-.891 9.8a.6.6 0 0 1-.598.546H5Zm0 0l-.6 6"/>
                         </svg>
                         <span>Priority</span>
                     </div>
 
-                    <div class="text-sm flex font-medium items-center space-x-1">
+                    <div class="flex items-center space-x-1 text-sm font-medium">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h3l3-9l6 18l3-9h3"/>
                         </svg>
                         <span>Status</span>
                     </div>
 
-                    <div class="text-sm flex font-medium items-center space-x-1">
+                    <div class="flex items-center space-x-1 text-sm font-medium">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4V2m0 2v2m0-2h-4.5M3 10v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9H3Zm0 0V6a2 2 0 0 1 2-2h2m0-2v4m14 4V6a2 2 0 0 0-2-2h-.5"/>
                         </svg>
@@ -442,7 +440,7 @@
         </div>
     </div>
 
-    <div x-show="projectModal">
+    <div x-show="projectModal" x-on:project-created.window="projectModal = false">
         <livewire:projects.form-modal />
     </div>
 </div>
@@ -456,6 +454,8 @@
                 filterDropdown: false,
                 exportDropdown: false,
                 moreOptionsDropdown: false,
+                isRunning: false,
+                startTime: null,
 
                 openProjectModal() {
                     this.projectModal = true;
@@ -479,8 +479,38 @@
 
                 toggleMoreOptions(){
                     this.moreOptionsDropdown = !this.moreOptionsDropdown;
+                },
+
+                // Time Tracking
+                startTimer() {
+                    this.startTime = Date.now();
+                    this.isRunning = true;
+                    this.updateTimer();
+                },
+
+                stopTimer() {},
+
+                updateTimer() {
+                    if (this.isRunning) {
+                        const currentTime = Date.now() - this.startTime;
+                        this.formatTime = this.formatMilliseconds(currentTime);
+                        setTimeout(() => this.updateTimer(), 1000); // Update every second
+                    }
+                },
+
+                formatMilliseconds(ms) {
+                    const minutes = Math.floor(ms / 60000);
+                    const seconds = ((ms % 60000) / 1000).toFixed(0);
+                    return `${minutes}:${(seconds < 10 ? '0' : '')}${seconds}`;
                 }
             }));
+
+
+            document.addEventListener('livewire:initialized', () => {
+                @this.on('project-created', (event) => {
+                    // alert('Project Created')
+                });
+            });
         });
     </script>
 @endpush

@@ -40,6 +40,7 @@ class Project extends Model
             get: fn ($value) => [
                 'icon' => PriorityEnum::from($value)->icon(),
                 'label' => PriorityEnum::from($value)->label(),
+                'iconLabel' => PriorityEnum::from($value)->iconLabel(),
                 'color' => PriorityEnum::from($value)->color()
             ]
         );
