@@ -6,7 +6,7 @@ use App\Models\Project;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class Index extends Component
+class ProjectController extends Component
 {
     #[Title('Projects')]
     public function render()

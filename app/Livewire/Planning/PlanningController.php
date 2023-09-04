@@ -5,7 +5,7 @@ namespace App\Livewire\Planning;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class Index extends Component
+class PlanningController extends Component
 {
     #[Title('Planning')]
     public function render()

@@ -5,8 +5,12 @@ namespace App\Livewire\Components;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class Index extends Component
+class ComponentController extends Component
 {
+    public function sendAnnouncementMail()
+    {
+    }
+
     #[Title('Components')]
     public function render()
     {

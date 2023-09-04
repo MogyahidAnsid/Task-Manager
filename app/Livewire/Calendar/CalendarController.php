@@ -5,7 +5,7 @@ namespace App\Livewire\Calendar;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class Index extends Component
+class CalendarController extends Component
 {
     #[Title('Calendar')]
     public function render()

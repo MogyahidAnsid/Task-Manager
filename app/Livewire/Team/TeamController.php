@@ -5,7 +5,7 @@ namespace App\Livewire\Team;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class Index extends Component
+class TeamController extends Component
 {
     #[Title('Teams')]
     public function render()
