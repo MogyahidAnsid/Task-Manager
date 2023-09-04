@@ -14,7 +14,7 @@
             </x-primary-button>
 
         </div>
-    
+        
         <!-- Tabs -->
         <div class="flex items-center justify-between border-b">
             <div class="flex items-center space-x-7">
@@ -155,7 +155,7 @@
         </div>
 
         <!-- Project Content -->
-        <div class="w-full mt-3" :class="{ 'grid grid-cols-3 gap-3' : !isDisplayRow}">
+        <div class="w-full mt-3" :class="{ 'grid md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-3' : !isDisplayRow}">
             @forelse ($projects as $project)
                 <!-- Row Display -->
                 <div x-data="{ moreOptionsDropdown }" x-show="isDisplayRow" class="my-2">
@@ -383,7 +383,7 @@
     </div>
 
     <!-- Right Sidebar -->
-    <div class="bg-white w-[30rem] ml-7 border-l -mr-14 pb-7 h-screen">
+    <div class="bg-white hidden lg:block w-[30rem] ml-7 border-l -mr-14 pb-7 h-screen">
         <div class="p-7">
             <h1 class="text-lg font-semibold tracking-tight">Design System</h1>
 
